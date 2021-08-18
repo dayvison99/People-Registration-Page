@@ -9,16 +9,16 @@
         <link rel="icon" href="../img/favicon.ico">
         <title>Contass</title>
         <!-- Bootstrap core CSS -->
-        <link href="/app/static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <link href="/static/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <!-- Custom styles for this template -->
-        <link href="/app/static/css/signin.css" rel="stylesheet">
-        <script src="/app/static/js/ie-emulation-modes-warning.js"></script>
+        <link href="/static/css/signin.css" rel="stylesheet">
+        <script src="/static/js/ie-emulation-modes-warning.js"></script>
   </head>
   <body>
     <div class="container">
-      <form class="form-signin" method="POST" action="../templates/index.php" >
+      <form class="form-signin" method="POST" action="../controllers/valida_login.php" >
 	  	<h2 class="form-signin-heading"><img src="/static/assets/img/contasslogo.png" height="80%" width="80%"> </h2>
         <h3 class="form-signin-heading"><center>Projeto Contass </h3></center>
 	         <label for="inputEmail" class="sr-only">Usuário </label>
@@ -26,11 +26,7 @@
                 <br />
   	               <label for="inputPassword" class="sr-only">Senha</label>
                    <input type="password" name="senha" class="form-control" placeholder="Digite a Senha" required>
-                   <div class="checkbox">
-                     <label>
-                        <input type="checkbox" value="remember-me"> Manter Me Conectado
-                    </label>
-                  </div>
+
                <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
        </form>
     </div> <!-- /container -->

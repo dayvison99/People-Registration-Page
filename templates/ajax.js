@@ -1,7 +1,19 @@
 $(document).on('click','#btn-add',function(e) {
-		var data = $("#user_form").serialize();
-		$.ajax({
+				var data = $("#user_form").serialize();
+				var id=$(this).attr("data-id");
+				var name=$('#name').val();
+				var email=$('#email').val();
+				var usuario=$('#usuario').val();
+				var senha=$('#senha').val();
+
+		if(name!="" && email!="" && usuario!="" && senha!=""){
+			$.ajax({
 			data: data,
+			name: name,
+			email: email,
+			usuario: usuario,
+
+
 			type: "post",
 			url: "../classes/manipularusuarios.php",
 			success: function(dataResult){
@@ -12,10 +24,20 @@ $(document).on('click','#btn-add',function(e) {
                         location.reload();
 					}
 					else if(dataResult.statusCode==201){
-					   alert(dataResult);
+							alert('Email Já Existe !');
+
+					}
+					else if(dataResult.statusCode==202){
+							alert('Usuário Já Existe !');
+
 					}
 			}
-		});
+				});
+			}
+		else{
+			alert('Preencha todos os campos !');
+		}
+
 	});
 	$(document).on('click','.update',function(e) {
 		var id=$(this).attr("data-id");

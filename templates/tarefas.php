@@ -14,7 +14,7 @@
 	<div id="layoutSidenav_content">
 			<main>
 					<div class="container-fluid px-4">
-							<h1 class="mt-4">Tarefas Cadastradasss</h1>
+							<h1 class="mt-4">Tarefas Cadastradas</h1>
 							<ol class="breadcrumb mb-4">
 
 							</ol>
@@ -86,6 +86,7 @@
 								data-usuario="<?php echo $row["usuario"]; ?>"
 								data-datatarefa="<?php echo $row["datatarefa"]; ?>"
 								title="Edit"></i>
+								<?php $_SESSION['UserID'] = $row["usuario"] ;  ?>
 							</a>
 							<a href="#tarefasdeleteEmployeeModal" class="delete" data-id="<?php echo $row["id"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
 							 title="Delete"></i></a>
@@ -166,7 +167,7 @@
 
 								<label for="exampleFormControlSelect1">USUÁRIO RESPONSÁVEL</label>
 								<select class="form-control" id="usuario_u" name="usuario" required>
-													<option selected> usuario_u </option>
+
 										<?php
 														$data_tarefa = date("d-m-Y");
 														date('d-m-Y', strtotime('NOW()'));

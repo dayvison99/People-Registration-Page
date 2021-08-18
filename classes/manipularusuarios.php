@@ -8,16 +8,30 @@ if(count($_POST)>0){
    $email=strtoupper($_POST['email']);
    $usuario=strtoupper($_POST['usuario']);
    $senha=$_POST['senha'];
-   $repiatasenha=$_POST['senha1'];
 
-   $sql = "INSERT INTO `user`( `nome`, `email`,`usuario`,`senha`,`repitasenha`)
-   VALUES ('$name','$email','$usuario','$senha','$repitasenha')";
-   if (mysqli_query($con, $sql)) {
-     echo json_encode(array("statusCode"=>200));
-   }
-   else {
-     echo "Error: " . $sql . "<br>" . mysqli_error($con);
-   }
+   $emailduplicado =mysqli_query($con,"select * from user where email='$email'");
+   $usuarioduplicado =mysqli_query($con,"select * from user where usuario='$usuario'");
+   if (mysqli_num_rows($usuarioduplicado)==0)
+   {
+	 if (mysqli_num_rows($emailduplicado)>0)
+	{
+		echo json_encode(array("statusCode"=>201));
+	}
+	else{
+    $sql = "INSERT INTO `user`( `nome`, `email`,`usuario`,`senha`)
+    VALUES ('$name','$email','$usuario','$senha')";
+    if (mysqli_query($con, $sql)) {
+      echo json_encode(array("statusCode"=>200));
+    }
+		else {
+			echo json_encode(array("statusCode"=>201));
+		}
+	}
+ }
+ else {
+   echo json_encode(array("statusCode"=>202));
+ }
+
    mysqli_close($con);
  }
 }

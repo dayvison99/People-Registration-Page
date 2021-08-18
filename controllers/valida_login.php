@@ -16,10 +16,11 @@ if(!isset($_SESSION)){
       echo "<center>Usuário ou Senha Invalidos!</center>";
 
   } else {
-      require("../templates/index.php");
+
       $_SESSION['UsuarioID'] = $resultado['id'];
       $_SESSION['UsuarioNome'] = $resultado['usuario'];
       $_SESSION['Nome'] = $resultado['nome'];
+      require("../templates/index.php");
 
       }
 ?>

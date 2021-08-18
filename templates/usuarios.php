@@ -9,7 +9,6 @@
 
 	?>
 
-
   <script src="../templates/ajax.js"></script>
 	<div id="layoutSidenav_content">
 			<main>
@@ -43,7 +42,7 @@
 									<label for="selectAll"></label>
 								</span>
 							</th>
-							<th>SL NO</th>
+							
 													<th>ID</th>
 	                        <th>NOME</th>
 	                        <th>EMAIL</th>
@@ -66,7 +65,7 @@
 									<label for="checkbox2"></label>
 								</span>
 							</td>
-						<td><?php echo $i; ?></td>
+
 						<td><?php echo $row["id"]; ?></td>
 						<td><?php echo $row["nome"]; ?></td>
 						<td><?php echo $row["email"]; ?></td>
@@ -96,11 +95,12 @@
 
 	        </div>
 	    </div>
+
 		<!-- Add Modal HTML -->
 		<div id="addEmployeeModal" class="modal fade">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form id="user_form">
+					<form id="user_form" >
 						<div class="modal-header">
 							<h4 class="modal-title">INSERIR USUÁRIOS</h4>
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -122,20 +122,17 @@
 								<label>SENHA</label>
 								<input type="password" id="senha" name="senha" class="form-control" required>
 							</div>
-							<div class="form-group">
-								<label>REPITA A SENHA</label>
-								<input type="password" id="senha1" name="senha1" class="form-control" required>
 							</div>
-						</div>
 						<div class="modal-footer">
 						    <input type="hidden" value="1" name="type">
 							<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-							<button type="button" class="btn btn-success" id="btn-add">INSERIR</button>
+							<button type="button" class="btn btn-success" id="btn-add" onClick="validarSenha()">INSERIR</button>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
+	</form>
 		<!-- Edit Modal HTML -->
 		<div id="editEmployeeModal" class="modal fade">
 			<div class="modal-dialog">
@@ -161,7 +158,7 @@
 							</div>
 							<div class="form-group">
 								<label>SENHA</label>
-								<input type="senha" id="senha_u" name="senha" class="form-control" required>
+								<input type="password" id="senha_u" name="senha" class="form-control" required>
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -199,7 +196,7 @@
 		</div>
 
 
-	<!-- /.content-wrapper -->
+
 
 	<?php require("../layout/rodape.php"); ?>
 
